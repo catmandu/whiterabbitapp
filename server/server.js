@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 app.use(bodyParser.json());
-app.use(path, __dirname, 'build');
+app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/active-packages', activePackagesRoutes);
 app.use('/api/hour-packages', hourPackagesRoutes);
 
