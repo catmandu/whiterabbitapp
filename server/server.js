@@ -16,6 +16,10 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('/api/active-packages', activePackagesRoutes);
 app.use('/api/hour-packages', hourPackagesRoutes);
 
+app.get('/{*any}', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
